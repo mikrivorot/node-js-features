@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/mikrivorot/node-js-features#readme",
   "dependencies": {
+    "request": "^2.87.0",
     "worker-threads": "^1.0.0"
   }
 }
