@@ -1,6 +1,6 @@
-const {  parentPort } = require('worker_threads');
+const {  parentPort, workerData } = require('worker_threads');
 
-console.log('started');
+console.log('Worker id ' + workerData.id + '. And message: '+ workerData.message);
 
 function random(min, max) {
     return Math.random() * (max - min) + min

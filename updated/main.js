@@ -5,7 +5,7 @@ const request = require('request');
 console.log('This is Main Thread');
 
 function startWorker(path, cb) {
-    let worker = new Worker(path, {workerData: {someInfo: 'haha', id: null}});
+    let worker = new Worker(path, {workerData: {message: 'Hello', id: 1}});
 
     // Listen messages
     worker.on('message', (msg) => {
