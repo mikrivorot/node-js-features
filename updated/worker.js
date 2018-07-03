@@ -20,3 +20,4 @@ let bigList = Array(1000000).fill().map( (_) => random(1,10000))
 
 sorter.sort(bigList);
 parentPort.postMessage({ val: sorter.firstValue, timeDiff: Date.now() - start});
+process.exit(9);
