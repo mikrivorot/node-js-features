@@ -5,7 +5,7 @@ const request = require('request');
 console.log('This is Main Thread');
 
 function startWorker(path, cb) {
-    let worker  = new Worker(path, {workerData: {someInfo: 'haha', id: null}});
+    let worker  = new Worker(path, {someInfo: 'haha', id: null});
 
     // Listen messages
     worker.on('message', (msg) => {
@@ -18,7 +18,7 @@ function startWorker(path, cb) {
     // Listen if worker is stopped
     worker.on('exit', (code)=>{
         if(code !== 0){
-            console.error(new Error('Worker ' + workerData.id + ' stopped with code ' + code));
+            console.error(new Error('Worker stopped with code ' + code));
         }
     });
 
