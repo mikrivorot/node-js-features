@@ -1,0 +1,22 @@
+{
+  "name": "js-features",
+  "version": "1.0.0",
+  "description": "https://habr.com/company/ruvds/blog/415659/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikrivorot/node-js-features.git"
+  },
+  "author": "MIKRIVOROT",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikrivorot/node-js-features/issues"
+  },
+  "homepage": "https://github.com/mikrivorot/node-js-features#readme",
+  "dependencies": {
+    "worker-threads": "^1.0.0"
+  }
+}
