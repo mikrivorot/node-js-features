@@ -8,7 +8,7 @@ const errorListener = (error) => {
 }
 
 module.exports = {
-    firstListener: firstListener,
-    errorListener: errorListener
+    firstListener,
+    errorListener
 };
 
