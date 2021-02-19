@@ -2,5 +2,6 @@
 Test different node js features
 
 ---
-[Event Loop example and explanation](./eventLoop/README.md)
-[Event Emitter](./eventEmitter/README.md)
+[Event Loop example and explanation](./eventLoop)
+[Event Emitter](./eventEmitter)
+[Worker Threads](./workerThreads)
