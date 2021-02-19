@@ -26,9 +26,3 @@ Event loop structure
 
 
 [Link](https://www.youtube.com/watch?v=7f787SsgknA) to a good video
-
-<figure class="video_container">
-  <iframe src="https://www.youtube.com/watch?v=7f787SsgknA" frameborder="0" allowfullscreen="true"> </iframe>
-</figure>
-
-<a href="https://www.youtube.com/watch?v=7f787SsgknA" title="Link Title"></a>
