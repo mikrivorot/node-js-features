@@ -9,3 +9,5 @@ Test different JS/NodeJS/TS features
 [Worker Threads](./workerThreads)
 
 [TS releases](./ts)
+
+[ECMAScript releases](./es)

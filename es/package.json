@@ -1,0 +1,18 @@
+{
+  "name": "es",
+  "version": "1.0.0",
+  "description": "For ES features",
+  "main": "index.js",
+  "author": "Margarita Krivorot",
+  "license": "ISC",
+  "scripts": {
+    "build": "babel module.js --out-dir build",
+    "build_and_run": "babel module.js --plugins transform-node-env-inline"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.0",
+    "@babel/core": "^7.13.8",
+    "@babel/preset-env": "^7.13.9",
+    "babel-plugin-transform-node-env-inline": "^0.4.3"
+  }
+}
