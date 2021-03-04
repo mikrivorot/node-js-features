@@ -1,5 +1,5 @@
 # node-js-features
-Test different node js features
+Test different JS/NodeJS/TS features
 
 ---
 [Event Loop example and explanation](./eventLoop)
@@ -7,3 +7,5 @@ Test different node js features
 [Event Emitter](./eventEmitter)
 
 [Worker Threads](./workerThreads)
+
+[TS releases](./ts)
