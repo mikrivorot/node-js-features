@@ -1,0 +1,57 @@
+version: '3.8'
+
+# why do we use confluentinc/cp-kafka and confluentinc/cp-zookeeper as base images and not apache/kafka:3.7.1?
+# Using confluentinc/cp-kafka and confluentinc/cp-zookeeper as base images in the docker-compose.yml file 
+# is often preferred due to several reasons. These images are part of the Confluent Platform, which is a comprehensive, enterprise-grade distribution of Apache Kafka
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    container_name: zookeeper
+    ports:
+      - "22181:2181"  # Mapping host port 22181 to container port 2181
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    container_name: kafka
+    ports:
+      - "9092:9092"  # Mapping host port 9092 to container port 9092
+    environment:
+      KAFKA_BROKER_ID: 1
+      # The KAFKA_ZOOKEEPER_CONNECT environment variable is used by Kafka to connect to the ZooKeeper service inside the Docker network, 
+      # not from outside the Docker containers. 
+      # Inside the Docker network, services communicate with each other using the container names and the internal ports they are exposed on. 
+      # The external port mappings (22181 for ZooKeeper and 9092 for Kafka) are used to allow access from the host machine or outside the Docker network
+      # NOTE: I've tried with another exposed kafka port, but it does not work - neither consumer nor produser see broker
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    depends_on: 
+    # This ensures that Docker Compose starts the zookeeper service before starting the kafka service.
+    # Also we can add healthcheck to zookeeper and another condition to kafka
+      - zookeeper
+
+
+
+# via docker, avoiding docker-compose.yaml
+# docker run -d \
+#   --name zookeeper \
+#   -p 22181:2181 \
+#   -e ZOOKEEPER_CLIENT_PORT=2181 \
+#   -e ZOOKEEPER_TICK_TIME=2000 \
+#   confluentinc/cp-zookeeper:latest
+
+# docker run -d \
+#   --name kafka \
+#   -p 29092:9092 \
+#   -e KAFKA_BROKER_ID=1 \
+#   -e KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181 \
+#   -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:29092 \
+#   -e KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=PLAINTEXT:PLAINTEXT \
+#   -e KAFKA_INTER_BROKER_LISTENER_NAME=PLAINTEXT \
+#   -e KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1 \
+#   --link zookeeper:zookeeper \
+#   confluentinc/cp-kafka:latest

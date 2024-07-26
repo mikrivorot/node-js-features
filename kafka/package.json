@@ -1,0 +1,15 @@
+{
+  "name": "kafka-check-m",
+  "version": "1.0.0",
+  "description": "Simple example with Kafka. Kafka is a distributed log-based messaging system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-zookeeper-kafka": "docker compose up -d"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "kafkajs": "^2.2.4"
+  }
+}
